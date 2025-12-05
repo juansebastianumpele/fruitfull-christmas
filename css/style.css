@@ -547,7 +547,7 @@ figure {
 
 #overlay {
   background: #ffffff;
-   background-image: url("../images/background/overlay.jpg");  background-size: cover;
+  background-image: url("../images/background/overlay.jpg");  background-size: cover;
   height: 100%;
   width: 100%;
   position: fixed;
@@ -1049,6 +1049,74 @@ figure {
     }
   }
 }
+
+@media screen and (min-width:768px){
+  
+  #fh5co-gallery .carousel-inner > .item > img,
+  #fh5co-gallery .carousel-inner > .item > a > img {
+    max-width: 100%;
+    max-height: 550px;
+    margin: 0 auto;
+  }
+  #fh5co-gallery .flower-3-top-2 {
+    height: 200px;
+    top: 82px;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    position: absolute;
+  }
+  #fh5co-gallery .flower-3-top {
+    height: 150px;
+    top: 82px;
+    left: -6%;
+    transform: translate(-50%, -50%);
+    position: absolute;
+    animation: updown 2s ease infinite;
+  }
+
+  #fh5co-gallery .flower-3-top-pine {
+    height: 130px;
+    top: 20px;
+    right: 7%;
+    transform: translate(-50%, -50%);
+    position: absolute;
+    animation: updown 2s ease infinite;
+  }
+
+  #fh5co-gallery .flower-4-bottom {
+    height: 100px;
+    bottom: 50px;
+    left: -6%;
+    transform: translate(-50%, 50%);
+    position: absolute;
+    animation: updown 2s ease infinite;
+  }
+
+  #fh5co-gallery .flower-4-leaves-small {
+    height: 200px;
+    bottom: 410px;
+    left: 10%;
+    transform: translate(-50%, 50%);
+    position: absolute;
+  }
+  #fh5co-gallery .flower-4-star {
+    height: 200px;
+    bottom: 410px;
+    left: 100%;
+    transform: translate(-50%, 50%);
+    position: absolute;
+    /* border: 1px solid red; */
+  }
+  #fh5co-gallery .flower-4-star-brown {
+    height: 100px;
+    bottom: 50px;
+    left: 50%;
+    transform: translate(-50%, 50%);
+    position: absolute;
+  }
+
+}
+
 
 /* Ayat */
 #fh5co-ayat {
@@ -2967,11 +3035,113 @@ form label {
   .flower-1 {
     height: 6%;
   }
+  .lead-ball-blaster {
+    position: absolute;
+    top: 299px;
+    left: 34%;
+    transform: translateX(-50%);
+    height: 90px;
+    /* border: 1px solid red; */
+    rotate: 40deg;
+    z-index: 1;
+    animation: rightslide 2.5s ease forwards;
+  }
+
+  .lead-old {
+    position: absolute;
+    top: 92px;
+    left: 8%;
+    transform: translateX(-50%);
+    height: 250px;
+    /* border: 1px solid red; */
+    rotate: -92deg;
+    /* z-index: 1; */
+    animation: rightslide 3s ease forwards;
+  }
+
+  .lead-2-green {
+    position: absolute;
+    top: 99px;
+    left: 60%;
+    transform: translateX(-50%);
+    height: 230px;
+    /* border: 1px solid red; */
+    /* rotate: -92deg; */
+    /* z-index: 1; */
+    animation: upslide 3s ease forwards;
+  }
+
+  .lead-glitter {
+    position: absolute;
+    top: -180px;
+    left: 70%;
+    transform: translateX(-50%);
+    height: 900px;
+    /* border: 1px solid red; */
+    /* z-index: 1; */
+    animation: zoomIn 5s ease forwards;
+  }
+
+  .lead-star {
+    position: absolute;
+    top: -40px;
+    left: 5%;
+    transform: translateX(-50%);
+    height: 90px;
+    /* border: 1px solid red; */
+    /* z-index: 1; */
+    /* animation: zoomIn 5s ease forwards; */
+  }
+
+  .lead-star-small {
+    position: absolute;
+    top: 40px;
+    left: 100%;
+    transform: translateX(-50%);
+    height: 40px;
+    /* border: 1px solid red; */
+    /* z-index: 1; */
+    /* animation: zoomIn 5s ease forwards; */
+  }
+
+  .lead-star-brown {
+    position: absolute;
+    top: 220px;
+    left: 5%;
+    transform: translateX(-50%);
+    height: 40px;
+    /* border: 1px solid red; */
+    /* z-index: 1; */
+    /* animation: zoomIn 5s ease forwards; */
+  }
+
+  .lead-leaves {
+    position: absolute;
+    top: 700px;
+    left: 94%;
+    transform: translateX(-50%);
+    height: 200px;
+    rotate: 20deg;
+    /* border: 1px solid red; */
+    /* z-index: 1; */
+    /* animation: zoomIn 5s ease forwards; */
+  }
 
   .pastor-wrapper {
     position: relative; /* jadi acuan */
     text-align: center; /* bisa untuk center horizontal */
     margin: 20px 0; /* beri jarak dari konten lain */
+  }
+  
+  .lead-pine {
+    position: absolute;
+    top: 299px;
+    left: 62%;
+    transform: translateX(-50%);
+    height: 88px;
+    /* border: 1px solid red; */
+    z-index: 1;
+    animation: leftslide 2.5s ease forwards;
   }
 
   .lead-pastor {
@@ -3026,10 +3196,187 @@ form label {
     height: 60%;
     right: -30px;
   }
+  
+  .flower-2-left {
+    left: -20px;
+    height: 200px;
+    bottom: 0;
+  }
+  .flower-2-left-2 {
+    left: -70px;
+    height: 120px;
+    top: 0;
+    animation: updown 3s ease infinite;
+  }
+  .flower-2-left-3 {
+    left: -100px;
+    height: 230px;
+    bottom: -40px;
+    animation: updown 3s ease infinite;
+  }
+  .flower-2-right {
+    top: 5%;
+    rotate: 90deg;
+    right: -10px;
+    height: 90px;
+    animation: updown 3s ease infinite;
+  }
+  .flower-2-right-2 {
+    top: 80%;
+    /* rotate: 90deg; */
+    right: -10px;
+    height: 100px;
+    animation: updown 3s ease infinite;
+  }
+  .flower-2-right-2:hover {
+    transform: scale(1.1);
+    transition: transform 1s;
+  }
+  .flower-3-top {
+    height: 200px;
+    bottom: 40px;
+    top: 5%;
+  }
+  .flower-4-bottom {
+    height: 200px;
+    bottom: 5%;
+  }
+  .flower-bukutamu-right {
+    height: 25%;
+  }
+  .flower-bukutamu-left {
+    height: 20%;
+  }
+
+  #fh5co-couple .container .fh5co-heading img {
+    width: 40%;
+  }
+  .flower-1-bottom-left {
+    position: absolute;
+    bottom: 1px;
+    left: 12%;
+    transform: translateX(-50%);
+    height: 250px;
+    /* border: 1px solid red; */
+    /* z-index: 1; */
+  }
+  .flower-1-bottom-right {
+    position: absolute;
+    bottom: -18px;
+    left: 85%;
+    transform: translateX(-50%);
+    height: 250px;
+    /* border: 1px solid red; */
+    z-index: 1;
+  }
 }
+
 @media (min-width: 1200px) {
   .flower-1-left {
     left: -50px;
+  }
+  .lead-ball-blaster {
+    position: absolute;
+    top:310px;
+    left: 40%;
+    transform: translateX(-50%);
+    height: 90px;
+    /* border: 1px solid red; */
+    rotate: 40deg;
+    z-index: 1;
+    animation: rightslide 2.5s ease forwards;
+  }
+
+  .lead-old {
+    position: absolute;
+    top: 95px;
+    left: 20%;
+    transform: translateX(-50%);
+    height: 250px;
+    /* border: 1px solid red; */
+    rotate: -92deg;
+    /* z-index: 1; */
+    animation: rightslide 3s ease forwards;
+  }
+
+  .lead-2-green {
+    position: absolute;
+    top: 99px;
+    left: 60%;
+    transform: translateX(-50%);
+    height: 230px;
+    /* border: 1px solid red; */
+    /* rotate: -92deg; */
+    /* z-index: 1; */
+    animation: upslide 3s ease forwards;
+  }
+
+  .lead-glitter {
+    position: absolute;
+    top: -180px;
+    left: 70%;
+    transform: translateX(-50%);
+    height: 900px;
+    /* border: 1px solid red; */
+    /* z-index: 1; */
+    animation: zoomIn 5s ease forwards;
+  }
+
+  .lead-star {
+    position: absolute;
+    top: -40px;
+    left: 5%;
+    transform: translateX(-50%);
+    height: 90px;
+    /* border: 1px solid red; */
+    /* z-index: 1; */
+    /* animation: zoomIn 5s ease forwards; */
+  }
+
+  .lead-star-small {
+    position: absolute;
+    top: 40px;
+    left: 100%;
+    transform: translateX(-50%);
+    height: 40px;
+    /* border: 1px solid red; */
+    /* z-index: 1; */
+    /* animation: zoomIn 5s ease forwards; */
+  }
+
+  .lead-star-brown {
+    position: absolute;
+    top: 220px;
+    left: 5%;
+    transform: translateX(-50%);
+    height: 40px;
+    /* border: 1px solid red; */
+    /* z-index: 1; */
+    /* animation: zoomIn 5s ease forwards; */
+  }
+
+  .lead-leaves {
+    position: absolute;
+    top: 600px;
+    left: 120%;
+    transform: translateX(-50%);
+    height: 300px;
+    rotate: 20deg;
+    /* border: 1px solid red; */
+    /* z-index: 1; */
+    /* animation: zoomIn 5s ease forwards; */
+  }
+
+  
+  .lead-pine {
+    position: absolute;
+    top: 310px;
+    left: 57%;
+    transform: translateX(-50%);
+    height: 88px;
+    /* border: 1px solid red; */
+    z-index: 1;
+    animation: leftslide 2.5s ease forwards;
   }
   .pastor-wrapper {
     position: relative; /* jadi acuan */
@@ -3070,6 +3417,8 @@ form label {
   .flower-2-right {
     right: -50px;
   }
+
+  
 }
 
 .lg-backdrop {
