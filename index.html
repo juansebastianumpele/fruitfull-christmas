@@ -137,9 +137,9 @@
 		<!--Floating button-->
 		<div id="floating-button" class="float">
 			<div class="control-center open">
-				<div class="audio-play">
+				<!-- <div class="audio-play">
 					<div data-video="QZng89VxKWg" data-autoplay="0" data-loop="1" id="youtube-audio1"></div>
-				</div>
+				</div> -->
 				<ul class="right-sidebar">
 					<!--gallery-->
 					<li onclick="scrollToElement('fh5co-gallery')"
@@ -250,15 +250,6 @@
 			}
 		}
 
-
-		$('#open-invitation').click(function () {
-			$('#overlay').addClass('hide-overlay');
-			playAudio();
-			var c = document.getElementsByClassName('right-sidebar');
-			for (var i = 0; i < c.length; i++) {
-				c[i].classList.add('animate');
-			}
-		});
 
 		function scrollToElement(el) {
 			$("html, body").animate({ scrollTop: $(`#${el}`).offset().top }, 1000);

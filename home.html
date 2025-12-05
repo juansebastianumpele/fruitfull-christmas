@@ -137,9 +137,6 @@
     <!--Floating button-->
     <div id="floating-button" class="float">
       <div class="control-center open">
-        <div class="audio-play">
-          <div data-video="QZng89VxKWg" data-autoplay="0" data-loop="1" id="youtube-audio1"></div>
-        </div>
         <ul class="right-sidebar">
           <!--gallery-->
           <li onclick="scrollToElement('fh5co-gallery')"
@@ -501,48 +498,65 @@
   <script src="https://cdnjs.cloudflare.com/ajax/libs/showdown/2.0.3/showdown.min.js"></script>
 
   <script>
+    // 🚫 Cegah audio dibuat dua kali
+    if (!window._audioInitialized) {
 
-    // NAMA UNDANGAN
-    var url = window.location.href;
-    var urlObj = new URL(url);
-    var namaUndangan = urlObj.searchParams.get("nama");
-    if (namaUndangan) {
-      namaUndangan = namaUndangan.toUpperCase();
-      var elements = document.getElementsByClassName("nama-undangan");
-      for (var i = 0; i < elements.length; i++) {
-        elements[i].innerHTML = namaUndangan;
+      window._audioInitialized = true;
+
+      // ==========================
+      // NAMA UNDANGAN
+      // ==========================
+      var urlObj = new URL(window.location.href);
+      var namaUndangan = urlObj.searchParams.get("nama");
+
+      if (namaUndangan) {
+        namaUndangan = namaUndangan.toUpperCase();
+        var elements = document.getElementsByClassName("nama-undangan");
+        for (var i = 0; i < elements.length; i++) {
+          elements[i].innerHTML = namaUndangan;
+        }
       }
-    }
 
-    day = 11; month = 11; year = 2025;
-    hour = 18; minute = 0;
-    var d = new Date(year, month, day, hour, minute, 0, 0);
+      // ==========================
+      // COUNTDOWN
+      // ==========================
+      var d = new Date(2025, 10, 11, 18, 0, 0); // bulan 0-11
 
-    // default example
-    simplyCountdown('.simply-countdown-wedding', {
-      year: d.getFullYear(),
-      month: d.getMonth() + 1,
-      day: d.getDate(),
-      hour: d.getHours(),
-      minutes: 0, // Default is 0 [0-59] integer
-      seconds: 0, // Default is 0 [0-59] integer
-      countUp: true
-      // enableUtc: true
-    });
+      simplyCountdown('.simply-countdown-wedding', {
+        year: d.getFullYear(),
+        month: d.getMonth() + 1,
+        day: d.getDate(),
+        hour: d.getHours(),
+        minutes: 0,
+        seconds: 0,
+        countUp: true
+      });
 
-    // PLAYER AUDIO LOKAL MENGGUNAKAN HOWLER.JS
-    var sound = new Howl({
-      src: ['images/audio/musik.mp3'], // lokasi file audio
-      autoplay: true,   // langsung play ketika halaman dimuat
-      loop: true,
-      volume: 1.0,
-      onplay: function () {
-        togglePlayButton(true); // update icon ke pause
-      }
-    });
+      // ==========================
+      // AUDIO — hanya dibuat sekali!
+      // ==========================
+      Howler.stop(); // pastikan tidak ada audio lama
 
-    function togglePlayButton(play) {
-      document.getElementById("audio-icon").src = play ? "images/audio/pause.png" : "images/audio/play.png";
+      window._globalSound = new Howl({
+        src: ["images/audio/musik.mp3"],
+        autoplay: true,   // 🔥 autoplay tetap ada
+        loop: true,
+        volume: 1.0,
+        onplay: () => togglePlayButton(true),
+        onpause: () => togglePlayButton(false)
+      });
+
+    } // end guard — tidak ada blok tambahan di bawah!
+
+    // Selalu ambil instance audio global
+    var sound = window._globalSound;
+
+    // ==========================
+    // FUNGSI PLAY/PAUSE BUTTON
+    // ==========================
+    function togglePlayButton(isPlaying) {
+      document.getElementById("audio-icon").src =
+        isPlaying ? "images/audio/pause.png" : "images/audio/play.png";
     }
 
     function toggleAudio() {
@@ -554,33 +568,16 @@
         togglePlayButton(true);
       }
     }
-
-    // Jika ingin pakai manual trigger saat halaman selesai dimuat:
-    window.onload = function () {
-      playAudio();
-    };
-
-    function playAudio() {
-      if (!sound.playing()) {
-        sound.play();
-        togglePlayButton(true);
-      }
-    }
+    // console.log("Howler active sounds:", Howler._howls.length);
 
 
-
-    function scrollToElement(el) {
-      $("html, body").animate({ scrollTop: $(`#${el}`).offset().top }, 1000);
-
-
-    }
-
-    document.addEventListener('DOMContentLoaded', function () {
-      // Your existing simplyCountdown initialization...
-
-      // Create snowflakes
+    // ==========================
+    // SALJU
+    // ==========================
+    document.addEventListener("DOMContentLoaded", function () {
       createSnowflakes();
     });
+
     function createSnowflakes() {
       const numSnowflakes = 80;
       const container = document.body;
@@ -593,15 +590,9 @@
         const size = Math.random() * 20 + 10;
         snowflake.style.fontSize = `${size}px`;
 
-        // Pastikan tidak keluar kanan/kiri
-        const positionX = Math.random() * (window.innerWidth - size);
-        const positionY = Math.random() * window.innerHeight;
-
-        const animationDuration = Math.random() * 10 + 5;
-
-        snowflake.style.left = `${positionX}px`;
-        snowflake.style.top = `${positionY}px`;
-        snowflake.style.animationDuration = `${animationDuration}s`;
+        snowflake.style.left = `${Math.random() * (window.innerWidth - size)}px`;
+        snowflake.style.top = `${Math.random() * window.innerHeight}px`;
+        snowflake.style.animationDuration = `${Math.random() * 10 + 5}s`;
 
         container.appendChild(snowflake);
       }
